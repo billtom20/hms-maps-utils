@@ -18,6 +18,12 @@ plugins {
     id 'com.android.library'
 }
 
+def artifactId = "3rd-maps-utils"
+def releaseVersion = "2.0.3"
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -36,6 +42,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            android.libraryVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${artifactId}-${releaseVersion}-${releaseTime()}.aar"
+                }
+            }
         }
     }
     compileOptions {
