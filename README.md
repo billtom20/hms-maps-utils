@@ -21,6 +21,6 @@ allprojects {
 ```java
 dependencies {
     implementation(name: '3rd-maps-utils-2.0.3-yyyyMMdd', ext: 'aar')
-	...
+    ...
 }
 ```
