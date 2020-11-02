@@ -1,4 +1,4 @@
-# 3rd-maps-utils (AndroidX)
+# 3rd-maps-utils ([AndroidX](https://developer.android.google.cn/jetpack/androidx))
 
 >This project is derived from [Maps SDK for Android Utility Library](https://github.com/googlemaps/android-maps-utils), and relies on Huawei HMS Core [Map Kit](https://developer.huawei.com/consumer/en/hms/huawei-MapKit) and [Site Kit](https://developer.huawei.com/consumer/en/hms/huawei-sitekit/).
 
