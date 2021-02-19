@@ -23,6 +23,9 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
+
+        // Add AppGallery Connect plug-in configurations.
+        classpath 'com.huawei.agconnect:agcp:1.4.2.300'
     }
 }
 

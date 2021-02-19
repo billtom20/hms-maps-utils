@@ -36,12 +36,12 @@ import com.huawei.hms.maps.model.LatLng;
 import com.huawei.hms.maps.model.TileOverlay;
 import com.huawei.hms.maps.model.TileOverlayOptions;
 
-import org.trd.maps.SphericalUtil;
-import org.trd.maps.heatmaps.Gradient;
-import org.trd.maps.heatmaps.HeatmapTileProvider;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.trd.maps.SphericalUtil;
+import org.trd.maps.heatmaps.Gradient;
+import org.trd.maps.heatmaps.HeatmapTileProvider;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -78,7 +78,7 @@ public class HeatmapsSiteDemoActivity extends BaseDemoActivity {
     private static final String OUT_JSON = "/json";
 
     /**
-     * Site API server key.
+     * Site API server key (need to be encoded).
      */
     private static final String API_KEY = "YOUR_KEY_HERE"; // TODO place your own here!
 

@@ -20,7 +20,8 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "org.trd.maps.utils.x.demo"
+        // TODO replace with your own applicationId
+        applicationId "com.huawei.maps.utils.x.demo"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
@@ -28,6 +29,7 @@ android {
     }
     signingConfigs {
         release {
+            // TODO replace with your own release config
             storeFile file("**.**")
             storePassword "******"
             keyAlias "******"
@@ -57,7 +59,7 @@ dependencies {
     // implementation 'com.google.maps.android:android-maps-utils:2.0.3'
     // [START_EXCLUDE silent]
     implementation project(':library')
-    implementation 'com.huawei.hms:maps:5.0.3.301'
+    implementation 'com.huawei.hms:maps:5.1.0.300'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     // [END_EXCLUDE]
