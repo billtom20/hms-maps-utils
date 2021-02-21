@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="org.trd.maps.utils.x.demo.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,21 +24,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="org.trd.maps.utils.x.demo.PolyDecodeDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.PolySimplifyDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.IconGeneratorDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.DistanceDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.ClusteringDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.BigClusteringDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.VisibleClusteringDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.CustomMarkerClusteringDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.ClusteringViewModelDemoActivity"/>
-        <activity android:name="org.trd.maps.utils.x.demo.TileProviderAndProjectionDemo" />
-        <activity android:name="org.trd.maps.utils.x.demo.HeatmapsDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.HeatmapsSiteDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.GeoJsonDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.KmlDemoActivity" />
-        <activity android:name="org.trd.maps.utils.x.demo.MultiLayerDemoActivity" />
+        <activity android:name=".PolyDecodeDemoActivity" />
+        <activity android:name=".PolySimplifyDemoActivity" />
+        <activity android:name=".IconGeneratorDemoActivity" />
+        <activity android:name=".DistanceDemoActivity" />
+        <activity android:name=".ClusteringDemoActivity" />
+        <activity android:name=".BigClusteringDemoActivity" />
+        <activity android:name=".VisibleClusteringDemoActivity" />
+        <activity android:name=".CustomMarkerClusteringDemoActivity" />
+        <activity android:name=".ClusteringViewModelDemoActivity"/>
+        <activity android:name=".TileProviderAndProjectionDemo" />
+        <activity android:name=".HeatmapsDemoActivity" />
+        <activity android:name=".HeatmapsSiteDemoActivity" />
+        <activity android:name=".GeoJsonDemoActivity" />
+        <activity android:name=".KmlDemoActivity" />
+        <activity android:name=".MultiLayerDemoActivity" />
 
     </application>
 

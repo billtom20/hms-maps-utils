@@ -15,13 +15,16 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
+
+// TODO replace with your own package_name
+def package_name = "com.huawei.maps.utils.x.demo"
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        // TODO replace with your own applicationId
-        applicationId "com.huawei.maps.utils.x.demo"
+        applicationId package_name
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
@@ -29,11 +32,16 @@ android {
     }
     signingConfigs {
         release {
-            // TODO replace with your own release config
-            storeFile file("**.**")
-            storePassword "******"
-            keyAlias "******"
-            keyPassword "******"
+            // TODO replace with your own release signingConfigs
+//            storeFile file("**.**")
+//            storePassword "******"
+//            keyAlias "******"
+//            keyPassword "******"
+//            v2SigningEnabled true
+            storeFile file("keystore.jks")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
             v2SigningEnabled true
         }
     }
@@ -56,14 +64,22 @@ android {
 
 // [START maps_android_utils_install_snippet]
 dependencies {
-    // implementation 'com.google.maps.android:android-maps-utils:2.0.3'
+
     // [START_EXCLUDE silent]
     implementation project(':library')
-    implementation 'com.huawei.hms:maps:5.1.0.300'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // HMS Core
+    implementation 'com.huawei.hms:maps:5.1.0.300'
+    implementation 'com.huawei.hms:maproute-fallback:5.1.0.300'
+    implementation 'com.huawei.hms:hwmaps-fallback:5.1.0.300'
     // [END_EXCLUDE]
 }
 // [END maps_android_utils_install_snippet]
 
-apply plugin: 'com.huawei.agconnect'
+task startDemo(type: Exec) {
+    dependsOn 'installDebug'
+    def adb = new File("${System.env.ANDROID_HOME}", "platform-tools${File.separator}adb")
+    commandLine adb, "shell", "am", "start", "-n", package_name + "/.MainActivity"
+}
