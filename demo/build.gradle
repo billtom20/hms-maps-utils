@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.huawei.agconnect'
 
 // TODO replace with your own package_name
-def package_name = "com.huawei.maps.utils.x.demo"
+def package_name = "*****"
 
 android {
     compileSdkVersion 29
@@ -33,15 +33,10 @@ android {
     signingConfigs {
         release {
             // TODO replace with your own release signingConfigs
-//            storeFile file("**.**")
-//            storePassword "******"
-//            keyAlias "******"
-//            keyPassword "******"
-//            v2SigningEnabled true
-            storeFile file("keystore.jks")
-            storePassword "123456"
-            keyAlias "key0"
-            keyPassword "123456"
+            storeFile file("**.**")
+            storePassword "******"
+            keyAlias "******"
+            keyPassword "******"
             v2SigningEnabled true
         }
     }
