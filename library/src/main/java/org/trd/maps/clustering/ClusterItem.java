@@ -29,8 +29,7 @@ public interface ClusterItem {
     /**
      * The position of this marker. This must always return the same value.
      */
-    @NonNull
-    LatLng getPosition();
+    @NonNull LatLng getPosition();
 
     /**
      * The title of this marker.

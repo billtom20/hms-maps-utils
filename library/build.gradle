@@ -19,18 +19,19 @@ plugins {
 }
 
 def artifactId = "3rd-maps-utils"
-def releaseVersion = "2.2.0"
-def releaseTime() {
-    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
-}
+def releaseVersion = "2.2.2"
+def releaseTime = new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -44,7 +45,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             android.libraryVariants.all { variant ->
                 variant.outputs.all {
-                    outputFileName = "${artifactId}-${releaseVersion}-${releaseTime()}.aar"
+                    outputFileName = "${artifactId}-${releaseVersion}-${releaseTime}.aar"
                 }
             }
         }
@@ -56,10 +57,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.huawei.hms:maps:5.1.0.300'
+    implementation 'com.huawei.hms:maps:5.2.0.302'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     lintPublish project(':lint-checks')
-    testImplementation 'junit:junit:4.13.1'
-    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.5.1'
     testImplementation 'net.sf.kxml:kxml2:2.3.0'
 }

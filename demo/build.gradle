@@ -42,7 +42,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -66,9 +66,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     // HMS Core
-    implementation 'com.huawei.hms:maps:5.1.0.300'
-    implementation 'com.huawei.hms:maproute-fallback:5.1.0.300'
-    implementation 'com.huawei.hms:hwmaps-fallback:5.1.0.300'
+    implementation 'com.huawei.hms:maps:5.2.0.302'
+    implementation 'com.huawei.hms:maproute-fallback:5.2.0.302'
+    implementation 'com.huawei.hms:hwmaps-fallback:5.2.0.302'
     // [END_EXCLUDE]
 }
 // [END maps_android_utils_install_snippet]
