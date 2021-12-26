@@ -26,9 +26,6 @@
 -keepattributes InnerClasses
 -keepattributes Signature
 -keepattributes SourceFile,LineNumberTable
--keep class com.hianalytics.android.**{*;}
+-keep class com.huawei.hianalytics.**{*;}
 -keep class com.huawei.updatesdk.**{*;}
 -keep class com.huawei.hms.**{*;}
-
-# Needed to avoid crash on minified app release with Maps SDK v3.1 beta (https://issuetracker.google.com/issues/148084488)
--keep,allowoptimization class org.trd.maps.** { *; }

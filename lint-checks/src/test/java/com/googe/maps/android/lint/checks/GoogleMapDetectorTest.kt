@@ -12,20 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googe.maps.android.lint.checks
+package com.google.maps.android.lint.checks
 
 import com.android.tools.lint.checks.infrastructure.LintDetectorTest
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.TextFormat
-import org.trd.maps.lint.checks.HuaweiMapDetector
 
 @Suppress("UnstableApiUsage")
 class GoogleMapDetectorTest : LintDetectorTest() {
 
     fun testSetOnMarkerDragListener() {
         lint().files(
-            testFile("""
+                testFile("""
                         map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
                             @Override 
                             public void onMarkerDragStart(Marker marker) {
@@ -40,13 +39,13 @@ class GoogleMapDetectorTest : LintDetectorTest() {
                             }
                       });
             """),
-            java(GOOGLE_MAP_STUB).indented()
+                java(GOOGLE_MAP_STUB).indented()
         ).run().expect(expectedText("map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {"))
     }
 
     fun testSetOnMarkerClickListener() {
         lint().files(
-            testFile("""
+                testFile("""
                         map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                             @Override 
                             public boolean onMarkerClick(Marker marker) {
@@ -54,40 +53,40 @@ class GoogleMapDetectorTest : LintDetectorTest() {
                             }
                       });
             """),
-            java(GOOGLE_MAP_STUB).indented()
+                java(GOOGLE_MAP_STUB).indented()
         ).run().expect(expectedText("map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {"))
     }
 
     fun testSetOnInfoWindowLongClickListener() {
         lint().files(
-            testFile("""
+                testFile("""
                         map.setOnInfoWindowLongClickListener(new GoogleMap.OnInfoWindowLongClickListener() {
                             @Override 
                             public void onInfoWindowLongClick(Marker marker) {
                             }
                       });
             """),
-            java(GOOGLE_MAP_STUB).indented()
+                java(GOOGLE_MAP_STUB).indented()
         ).run().expect(expectedText("map.setOnInfoWindowLongClickListener(new GoogleMap.OnInfoWindowLongClickListener() {"))
     }
 
     fun testSetOnInfoWindowClickListener() {
         lint().files(
-            testFile("""
+                testFile("""
                         map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                             @Override 
                             public void onInfoWindowClick(Marker marker) {
                             }
                       });
             """),
-            java(GOOGLE_MAP_STUB).indented()
+                java(GOOGLE_MAP_STUB).indented()
         ).run().expect(expectedText("map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {"))
     }
 
     fun testSetInfoWindowAdapter() {
         lint().files(
-            testFile(
-            """
+                testFile(
+                        """
                         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                             @Override 
                             public View getInfoWindow(Marker marker) {
@@ -100,20 +99,24 @@ class GoogleMapDetectorTest : LintDetectorTest() {
                             }
                       });
             """),
-            java(GOOGLE_MAP_STUB).indented()
+                java(GOOGLE_MAP_STUB).indented()
         ).run().expect(expectedText("map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {"))
     }
 
     private fun expectedText(text: String): String =
-        """
-        src/test/pkg/TestClass.java:10: Warning: ${HuaweiMapDetector.POTENTIAL_BEHAVIOR_OVERRIDE.getBriefDescription(TextFormat.TEXT)} [${HuaweiMapDetector.POTENTIAL_BEHAVIOR_OVERRIDE.id}]
+            """
+        src/test/pkg/TestClass.java:10: Warning: ${
+            HuaweiMapDetector.POTENTIAL_BEHAVIOR_OVERRIDE.getBriefDescription(
+                    TextFormat.TEXT
+            )} [${HuaweiMapDetector.POTENTIAL_BEHAVIOR_OVERRIDE.id}]
                 $text
                 ^
         0 errors, 1 warnings
         """
 
     private fun testFile(containing: String): TestFile {
-        return java("""
+        return java(
+                """
                 package test.pkg;
                 
                 import com.google.android.gms.maps.GoogleMap;
@@ -142,7 +145,6 @@ class GoogleMapDetectorTest : LintDetectorTest() {
         package com.google.android.gms.maps;
         
         import android.view.View;
-        import com.google.android.gms.maps.model.Marker;
         
         public class GoogleMap {
            public final void setInfoWindowAdapter(GoogleMap.InfoWindowAdapter adapter) {

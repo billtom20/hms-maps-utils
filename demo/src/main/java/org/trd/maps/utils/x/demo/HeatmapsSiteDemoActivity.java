@@ -49,6 +49,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -80,7 +81,7 @@ public class HeatmapsSiteDemoActivity extends BaseDemoActivity {
     /**
      * Site API server key (need to be encoded).
      */
-    private static final String API_KEY = "YOUR_KEY_HERE"; // TODO place your own here!
+    private static final String API_KEY = BuildConfig.MAPS_API_KEY;
 
     /**
      * The colors to be used for the different heatmap layers.
@@ -261,7 +262,7 @@ public class HeatmapsSiteDemoActivity extends BaseDemoActivity {
                             + "?location=" + location.latitude + "," + location.longitude
                             + "&radius=" + (SEARCH_RADIUS / 2)
                             + "&sensor=false"
-                            + "&key=" + API_KEY
+                            + "&key=" + URLEncoder.encode(API_KEY, "UTF-8")
                             + "&keyword=" + keyword.replace(" ", "%20")
             );
             Log.d(TAG, "URL: " + url);

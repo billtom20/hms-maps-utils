@@ -22,8 +22,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.huawei.hms.maps.MapsInitializer;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ViewGroup mListView;
@@ -33,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        if (BuildConfig.MAPS_API_KEY.isEmpty()) {
+            Toast.makeText(this, "Add your own API key in local.properties as MAPS_API_KEY=YOUR_API_KEY", Toast.LENGTH_LONG).show();
+        }
+
         mListView = findViewById(R.id.list);
 
         addDemo("Clustering", ClusteringDemoActivity.class);
@@ -40,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addDemo("Clustering: 2K markers", BigClusteringDemoActivity.class);
         addDemo("Clustering: 20K only visible markers", VisibleClusteringDemoActivity.class);
         addDemo("Clustering: ViewModel", ClusteringViewModelDemoActivity.class);
+        addDemo("Clustering: Force on Zoom", ZoomClusteringDemoActivity.class);
         addDemo("PolyUtil.decode", PolyDecodeDemoActivity.class);
         addDemo("PolyUtil.simplify", PolySimplifyDemoActivity.class);
         addDemo("IconGenerator", IconGeneratorDemoActivity.class);

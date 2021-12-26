@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.trd.maps.lint.checks
+package com.google.maps.android.lint.checks
 
 import com.android.tools.lint.detector.api.Category
 import com.android.tools.lint.detector.api.Detector
