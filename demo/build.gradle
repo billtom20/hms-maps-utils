@@ -24,7 +24,7 @@ plugins {
 }
 
 // TODO replace with your own package_name
-def package_name = "*****"
+def package_name = "org.trd"
 
 android {
     compileSdkVersion 30
