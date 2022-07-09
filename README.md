@@ -2,7 +2,24 @@
 
 >This project is derived from [Maps SDK for Android Utility Library](https://github.com/googlemaps/android-maps-utils), and relies on Huawei HMS Core [Map Kit](https://developer.huawei.com/consumer/en/hms/huawei-MapKit) and [Site Kit](https://developer.huawei.com/consumer/en/hms/huawei-sitekit/).
 
-## Usage of library module
+## Usage
+1. Add the JitPack repository to your build file
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+2. Add the dependency
+```
+dependencies {
+    implementation 'com.github.billtom20:hms-maps-utils:2.4.0'
+}
+```
+
+## Usage of library module(offline)
 1. Open Gradle, click library->Tasks->build->assemble.
 2. After Run, find `hms-maps-utils-2.4.0-yyyyMMdd.aar` file in `library/build/outputs/aar/` path.
 3. Copy `hms-maps-utils-2.4.0-yyyyMMdd.aar` file to your own `app/libs/` path.
