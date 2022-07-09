@@ -17,11 +17,15 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 
-def artifactId = "3rd-maps-utils"
-def releaseVersion = "2.3.0"
+def innerGroupId = "com.github.billtom20"
+def innerArtifactId = "hms-maps-utils"
+def releaseVersion = "2.4.0"
 def releaseTime = new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+group = "${innerGroupId}"
+version = "${releaseVersion}"
 
 android {
     compileSdkVersion 30
@@ -42,7 +46,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             android.libraryVariants.all { variant ->
                 variant.outputs.all {
-                    outputFileName = "${artifactId}-${releaseVersion}-${releaseTime}.aar"
+                    outputFileName = "${innerArtifactId}-${releaseVersion}-${releaseTime}.aar"
                 }
             }
         }
@@ -70,7 +74,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     lintPublish project(':lint-checks')
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:4.6.1'
+    testImplementation 'org.robolectric:robolectric:4.7.3'
     testImplementation 'net.sf.kxml:kxml2:2.3.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
@@ -79,4 +83,18 @@ task instrumentTest(dependsOn: connectedCheck)
 
 if (System.getenv("JITPACK")) {
     apply plugin: 'maven'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = "${innerGroupId}"
+                artifactId = "${innerArtifactId}"
+                version = "${releaseVersion}"
+            }
+        }
+    }
 }

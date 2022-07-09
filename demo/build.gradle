@@ -72,8 +72,6 @@ dependencies {
 
     // HMS Core
     implementation "com.huawei.hms:maps:$map_version"
-    implementation "com.huawei.hms:maproute-fallback-full:$map_version"
-    implementation "com.huawei.hms:hwmaps-fallback-full:$map_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     // [END_EXCLUDE]
