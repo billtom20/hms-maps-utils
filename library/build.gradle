@@ -17,7 +17,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'maven-publish'
 }
 
 def innerGroupId = "com.github.billtom20"
@@ -82,19 +81,19 @@ dependencies {
 task instrumentTest(dependsOn: connectedCheck)
 
 if (System.getenv("JITPACK")) {
-    apply plugin: 'maven'
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = "${innerGroupId}"
-                artifactId = "${innerArtifactId}"
-                version = "${releaseVersion}"
+    apply plugin: 'maven-publish'
+    afterEvaluate {
+        publishing {
+            publications {
+                // Creates a Maven publication called "release".
+                release(MavenPublication) {
+                    from components.release
+                    groupId = "${innerGroupId}"
+                    artifactId = "${innerArtifactId}"
+                    version = "${releaseVersion}"
+                }
             }
         }
     }
 }
+
