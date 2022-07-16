@@ -19,7 +19,7 @@ dependencies {
 }
 ```
 
-## Usage of library module(offline)
+## Usage of library module(offline, not recommended)
 1. Open Gradle, click library->Tasks->build->assemble.
 2. After Run, find `hms-maps-utils-2.4.0-yyyyMMdd.aar` file in `library/build/outputs/aar/` path.
 3. Copy `hms-maps-utils-2.4.0-yyyyMMdd.aar` file to your own `app/libs/` path.

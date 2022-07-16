@@ -44,8 +44,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             android.libraryVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "${innerArtifactId}-${releaseVersion}-${releaseTime}.aar"
+                if (!System.getenv("JITPACK")) {
+                    variant.outputs.all {
+                        outputFileName = "${innerArtifactId}-${releaseVersion}-${releaseTime}.aar"
+                    }
                 }
             }
         }
