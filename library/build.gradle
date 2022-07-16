@@ -21,7 +21,7 @@ plugins {
 
 def innerGroupId = "com.github.billtom20"
 def innerArtifactId = "hms-maps-utils"
-def releaseVersion = "2.4.0"
+def releaseVersion = "2.4.1"
 def releaseTime = new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 group = "${innerGroupId}"
 version = "${releaseVersion}"
